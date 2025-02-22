@@ -1,14 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/styles.css" /> -->
     <title>asov-multi-step-form</title>
     <link href="./src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 </head>
+
 <body>
-    <h1 class="text-5xl font-bold text-blue-500 underline">HELLO WORD</h1>
+    <nav class="px-6 bg-gradient-to-r from-blue-400 via-green-500 to-blue-300 text-white">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <!-- Logo -->
+            <a href="#" class="text-xl font-bold flex-shrink-0 text-white">Asov-Mform</a>
+
+            <button id="#fill-form"
+                class="cursor-pointer md:flex  space-x-6 px-6 py-3 bg-green-500 text-white font-bold rounded-full hover:from-green-500 hover:to-blue-400 focus:outline-none">
+                fill form
+            </button>
+        </div>
+    </nav>
+<main class="bg-blue-50 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full">
+        <div class="flex flex-col md:flex-row">
+            <!-- Left sidebar -->
+            <div class="md:w-64 bg-blue-600 text-white p-8 md:rounded-l-lg">
+                <div class="flex md:flex-col justify-between">
+                    <div class="step-indicator flex items-center mb-6" data-step="1">
+                        <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center step-circle mr-4">1
+                        </div>
+                        <span class="hidden md:inline">Personal Info</span>
+                    </div>
+                    <div class="step-indicator flex items-center mb-6" data-step="2">
+                        <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center step-circle mr-4">2
+                        </div>
+                        <span class="hidden md:inline">Professional</span>
+                    </div>
+                    <div class="step-indicator flex items-center mb-6" data-step="3">
+                        <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center step-circle mr-4">3
+                        </div>
+                        <span class="hidden md:inline">Social Media</span>
+                    </div>
+                    <div class="step-indicator flex items-center mb-6" data-step="4">
+                        <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center step-circle mr-4">4
+                        </div>
+                        <span class="hidden md:inline">Education</span>
+                    </div>
+                    <div class="step-indicator flex items-center mb-6" data-step="5">
+                        <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center step-circle mr-4">5
+                        </div>
+                        <span class="hidden md:inline">Summary</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="flex-1 p-6">
+                <!-- Step 1: Personal Info -->
+                <div class="step-content" id="step1">
+                    <h2 class="text-2xl font-bold mb-4">Personal Information</h2>
+                    <p class="text-gray-600 mb-4">(Required)</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-1">Full Name *</label>
+                            <input type="text" name="name"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                            <div class="error-message text-red-500 mt-1 hidden"></div>
+                        </div>
+                        <div>
+                            <label class="block mb-1">Email Address *</label>
+                            <input type="email" name="email"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                            <div class="error-message text-red-500 mt-1 hidden"></div>
+                        </div>
+                        <div>
+                            <label class="block mb-1">Phone Number *</label>
+                            <input type="tel" name="phone"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                            <div class="error-message text-red-500 mt-1 hidden"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Step 2: Professional Links -->
+                <div class="step-content hidden" id="step2">
+                    <h2 class="text-2xl font-bold mb-4">Professional Links</h2>
+                    <p class="text-gray-600 mb-4">(Optional)</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-1">LinkedIn Profile URL</label>
+                            <input type="url" name="linkedin"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block mb-1">GitHub/Portfolio Website</label>
+                            <input type="url" name="github"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block mb-1">Personal Blog</label>
+                            <input type="url" name="blog"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Social Media -->
+                <div class="step-content hidden" id="step3">
+                    <h2 class="text-2xl font-bold mb-4">Social Media Handles</h2>
+                    <p class="text-gray-600 mb-4">(Optional)</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-1">Twitter</label>
+                            <input type="text" name="twitter"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block mb-1">Instagram</label>
+                            <input type="text" name="instagram"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block mb-1">Facebook</label>
+                            <input type="text" name="facebook"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Education -->
+                <div class="step-content hidden" id="step4">
+                    <h2 class="text-2xl font-bold mb-4">Educational Background</h2>
+                    <p class="text-gray-600 mb-4">(Optional)</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-1">Institution Name</label>
+                            <input type="text" name="institution"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block mb-1">Degree/Qualification</label>
+                            <input type="text" name="degree"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block mb-1">Graduation Year</label>
+                            <input type="number" name="gradYear"
+                                class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" min="1900"
+                                max="2099">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Summary -->
+                <div class="step-content hidden" id="step5">
+                    <h2 class="text-2xl font-bold mb-4">Summary</h2>
+                    <div class="space-y-6">
+                        <!-- Personal Information Summary -->
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2">Personal Information</h3>
+                            <div class="grid grid-cols-1 gap-2">
+                                <p>Name: <span id="summary-name" class="text-gray-600"></span></p>
+                                <p>Email: <span id="summary-email" class="text-gray-600"></span></p>
+                                <p>Phone: <span id="summary-phone" class="text-gray-600"></span></p>
+                            </div>
+                        </div>
+
+                        <!-- Professional Links Summary -->
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2">Professional Links</h3>
+                            <div class="grid grid-cols-1 gap-2">
+                                <p>LinkedIn: <span id="summary-linkedin" class="text-gray-600"></span></p>
+                                <p>GitHub: <span id="summary-github" class="text-gray-600"></span></p>
+                                <p>Blog: <span id="summary-blog" class="text-gray-600"></span></p>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Summary -->
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2">Social Media</h3>
+                            <div class="grid grid-cols-1 gap-2">
+                                <p>Twitter: <span id="summary-twitter" class="text-gray-600"></span></p>
+                                <p>Facebook: <span id="summary-facebook" class="text-gray-600"></span></p>
+                                <p>Instagram: <span id="summary-instagram" class="text-gray-600"></span></p>
+                            </div>
+                        </div>
+
+                        <!-- Education Summary -->
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2">Educational Background</h3>
+                            <div class="grid grid-cols-1 gap-2">
+                                <p>Institution: <span id="summary-institution" class="text-gray-600"></span></p>
+                                <p>Degree: <span id="summary-degree" class="text-gray-600"></span></p>
+                                <p>Graduation Year: <span id="summary-gradYear" class="text-gray-600"></span></p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-6 flex gap-4">
+                            <button id="downloadBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Download Summary
+                            </button>
+                            <button id="resetBtn" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                                Start Over
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-8 flex justify-between">
+                    <button id="prevBtn" class="px-4 py-2 text-gray-600 hover:text-gray-800 hidden">Back</button>
+                    <button id="nextBtn" class="ml-auto px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Next
+                        Step
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="thankYouPopup" class="align-bottom thank-you-page w-50 h-50 fixed inset-0  hidden items-center justify-center bg-white bg-opacity-50 ">
+        <div class="bg-white justify-center align-middle p-6 rounded-lg shadow-xl text-center">
+            <div class="text-green-500 text-5xl mb-4 flex justify-center align-middle">✓</div>
+            <h2 class="text-2xl  font-bold m-2">Thank you!</h2>
+            <p class="text-green-500 flex justify-center align-middle m-5">For using Asov-Multi-Form.</p>
+            <p class="text-green-500 flex justify-center align-middle m-5">Download Form.</p>
+        </div>
+    </div>
+</main>
+
+
+
+    
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-blue-400 via-green-500 to-blue-300 text-white-600">
+        <div class="footer-container  ">
+            <p>&copy; 2025 Asov-Mform. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://web.facebook.com/Blessedvictoo1"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/BlessedVictoo"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/solomonotene36/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/victor-otene-26a4a023a/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

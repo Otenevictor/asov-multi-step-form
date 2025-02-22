@@ -4,8 +4,101 @@
 
 body {
     box-sizing: border-box;
-    background-color: black;
   }
-  h1{
-    color: red;
-  }
+  /* Custom styles to complement Tailwind */
+.step-indicator.active .step-circle {
+    border-color: #3B82F6;
+    color: #3B82F6;
+    background-color: white;
+}
+
+.step-indicator.completed .step-circle {
+    background-color: #3B82F6;
+    border-color: #3B82F6;
+    color: white;
+}
+
+.plan-option.selected {
+    border-color: #3B82F6;
+    background-color: #F0F7FF;
+}
+
+.plan-option.selected .check-mark {
+    display: block;
+    color: #3B82F6;
+}
+
+.addon-option.selected {
+    border-color: #3B82F6;
+    background-color: #F0F7FF;
+}
+
+.addon-option.selected .check-mark {
+    display: block;
+    color: #3B82F6;
+}
+
+/* Focus states */
+input:focus {
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
+}
+
+/* Error state */
+input.error {
+    border-color: #EF4444;
+}
+
+/* Transition for thank you popup */
+#thankYouPopup {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+#thankYouPopup.show {
+    opacity: 1;
+}
+/* .thank-you-page { display: none; } */
+.thank-you-page.active { display: flex; }
+
+/* Animation for checkmark */
+.check-mark {
+    transition: transform 0.2s ease-in-out;
+}
+
+.selected .check-mark {
+    transform: scale(1.2);
+}
+ /* Footer Styles */
+footer {
+    background-color: rgba(29, 218, 86, 0.9);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-container p {
+    font-size: 0.875rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    transition: color 0.3s;
+}
