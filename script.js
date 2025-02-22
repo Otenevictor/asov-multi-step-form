@@ -174,6 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const confirmButton = document.getElementById('nextBtn');
         confirmButton.disabled = true;
         confirmButton.classList.add('opacity-50', 'cursor-not-allowed');
+        const confirmButtons = document.getElementById('prevBtn');
+        confirmButtons.disabled = true;
+        confirmButtons.classList.add('opacity-50', 'cursor-not-allowed');
 
         // Show thank you popup
         thankYouPopup.classList.remove('hidden');
@@ -186,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 thankYouPopup.classList.add('hidden');
                 // Keep the button disabled
             }, 300);
-        }, 3000);
+        }, 1000);
     }
 
     function downloadSummary() {
@@ -218,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'form-summary.txt';
+        a.download = 'bio-data.txt';
         a.click();
         URL.revokeObjectURL(url);
     }
@@ -246,14 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], textarea')
             .forEach(input => input.value = '');
 
-        // Re-enable the submit button
         // Re-enable the confirm button
         const confirmButton = document.getElementById('nextBtn');
         confirmButton.disabled = false;
         confirmButton.classList.remove('opacity-50', 'cursor-not-allowed');
-        // nextBtn.disabled = false;
-        // nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-
+        const confirmButtons = document.getElementById('prevBtn');
+        confirmButtons.disabled = false;
+        confirmButtons.classList.remove('opacity-50', 'cursor-not-allowed');
         // Go to first step
         currentStep = 1;
         showStep(currentStep);

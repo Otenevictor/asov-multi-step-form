@@ -13,19 +13,19 @@
 
 </head>
 
-<body class="min-h-screen min-w-screen">
+<body class="min-h-screen min-w-screen ">
     <nav class="px-6 bg-gradient-to-r from-blue-400 via-green-500 to-blue-300 text-white">
         <div class="container mx-auto flex justify-between items-center p-4">
             <!-- Logo -->
-            <a href="#" class="text-xl font-bold flex-shrink-0 text-white">Asov-Mform</a>
+            <a href="#fill-form" class="text-xl font-bold flex-shrink-0 text-white">Asov-Mform</a>
 
-            <button id="#fill-form"
-                class="cursor-pointer md:flex  space-x-6 px-6 py-3 bg-green-500 text-white font-bold rounded-full hover:from-green-500 hover:to-blue-400 focus:outline-none">
+            <a href="#fill-form"><button
+                class="cursor-pointer md:flex  space-x-6 px-6 py-3 bg-white text-blue-900 font-bold rounded-full hover:from-green-500 hover:to-blue-400 focus:outline-none">
                 fill form
-            </button>
+            </button></a>
         </div>
     </nav>
-<main class="bg-blue-50 min-h-screen flex items-center justify-center p-4">
+    <main id="fill-form" class=" backdrop-blur-lg bg-blue-50 min-h-screen flex items-center justify-center p-4 bg-[url('https://res.cloudinary.com/de5sm2jjl/image/upload/v1740153885/building-view-from-field_1112-634_colamn.jpg')] bg-cover bg-center">
     <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full">
         <div class="flex flex-col md:flex-row">
             <!-- Left sidebar -->
@@ -57,6 +57,9 @@
                         <span class="hidden md:inline">Summary</span>
                     </div>
                 </div>
+                <!-- <button id="resetBtn" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                    Start Over
+                </button> -->
             </div>
 
             <!-- Main content -->
@@ -64,22 +67,22 @@
                 <!-- Step 1: Personal Info -->
                 <div class="step-content" id="step1">
                     <h2 class="text-2xl font-bold mb-4">Personal Information</h2>
-                    <p class="text-gray-600 mb-4">(Required)</p>
+                    <p class="text-red-600 mb-4">(Required)*</p>
                     <div class="space-y-4">
                         <div>
-                            <label class="block mb-1">Full Name *</label>
+                            <label class="block mb-1">Full Name <span class="text-red-500">*</span></label>
                             <input type="text" name="name"
                                 class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
                             <div class="error-message text-red-500 mt-1 hidden"></div>
                         </div>
                         <div>
-                            <label class="block mb-1">Email Address *</label>
+                            <label class="block mb-1">Email Address <span class="text-red-500">*</span></label>
                             <input type="email" name="email"
                                 class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
                             <div class="error-message text-red-500 mt-1 hidden"></div>
                         </div>
                         <div>
-                            <label class="block mb-1">Phone Number *</label>
+                            <label class="block mb-1">Phone Number <span class="text-red-500">*</span></label>
                             <input type="tel" name="phone"
                                 class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
                             <div class="error-message text-red-500 mt-1 hidden"></div>
@@ -159,8 +162,8 @@
                 </div>
 
 <!-- Step 5: Summary -->
-<div class="step-content hidden" id="step5">
-    <h2 class="text-2xl font-bold mb-4">Summary</h2>
+<div class="bg-[url('https://res.cloudinary.com/de5sm2jjl/image/upload/v1675071000/cld-sample-2.jpg')] bg-cover bg-center min-h-screen step-content hidden" id="step5">
+    <h2 class="text-2xl font-bold mb-4 text-blue-600 flex justify-center items-center">Summary</h2>
 
     <!-- Responsive Wrapper -->
     <div class="flex flex-col md:flex-row flex-wrap gap-4 md:gap-6 w-full">
@@ -213,7 +216,7 @@
         <button id="downloadBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             Download Summary
         </button>
-        <button id="resetBtn" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+        <button id="resetBtn" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
             Start Over
         </button>
     </div>
@@ -223,7 +226,7 @@
 
                 <!-- Navigation Buttons -->
                 <div class="mt-8 flex justify-between">
-                    <button id="prevBtn" class="px-4 py-2 text-gray-600 hover:text-gray-800 hidden">Back</button>
+                    <button id="prevBtn" class="px-4 py-2  bg-blue-500  text-white hover:bg-blue-600 hidden">Previous</button>
                     <button id="nextBtn" class="ml-auto px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Next
                         Step
                     </button>

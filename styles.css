@@ -13,7 +13,7 @@ body {
 }
 
 .step-indicator.completed .step-circle {
-    background-color: #3B82F6;
+    background-color: #09f37e;
     border-color: #3B82F6;
     color: white;
 }
