@@ -120,6 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formData.email && !validateEmail(formData.email)) {
                 showError('email', 'Please enter a valid email address');
                 isValid = false;
+            }else if(formData.phone && !validatePhone(formData.phone)){
+                    showError('phone', 'Please enter a valid phone number');
+                    isValid = false;
             }
         }
 
@@ -128,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    function validatePhone(phone) {
+        return /^\+?[0-9]\d{5,14}$/.test(phone);
     }
 
     function showError(field, message) {
@@ -254,8 +260,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const confirmButtons = document.getElementById('prevBtn');
         confirmButtons.disabled = false;
         confirmButtons.classList.remove('opacity-50', 'cursor-not-allowed');
+
+
         // Go to first step
         currentStep = 1;
         showStep(currentStep);
     }
 });
+
+// document.getElementById('phone').addEventListener('input', function () {
+//     const phoneInput = this.value.trim();
+//     const errorDiv = this.nextElementSibling;
+
+//     // Regular expression for E.164 international phone number format
+//     const phoneRegex = /^\+?[1-9]\d{1,14}$/; 
+
+//     if (!phoneRegex.test(phoneInput)) {
+//         this.classList.add('border-red-500'); // Highlight error
+//         errorDiv.textContent = "Enter a valid international phone number (e.g., +1234567890123)";
+//         errorDiv.classList.remove('hidden');
+//     } else {
+//         this.classList.remove('border-red-500'); // Remove error highlight
+//         errorDiv.textContent = "";
+//         errorDiv.classList.add('hidden');
+//     }
+// });
