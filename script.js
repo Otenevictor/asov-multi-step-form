@@ -193,6 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function downloadSummary() {
+        const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
         const summaryText = `
         Personal Information Summary
 
@@ -217,13 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
         Graduation Year: ${formData.gradYear || 'Not provided'}
         `;
 
-        const blob = new Blob([summaryText], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'bio-data.txt';
-        a.click();
-        URL.revokeObjectURL(url);
+        doc.text(summaryText, 10, 10); // Add text to the PDF
+        doc.save("bio-data.pdf"); // Download as PDF
     }
 
     function resetForm() {
