@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function downloadSummary() {
         const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+        const doc = new jsPDF();
 
         const summaryText = `
         Personal Information Summary
